@@ -1,0 +1,55 @@
+ <!--Leonard Pirela 28171628-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pozos Petroleros Zulianos, Leonard Pirela</title>
+
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+</head>
+
+<body onload="generarTabla(obtenerDatos('.\/modelos\/obtenerPozos.php'), 'pozos');">
+
+<div id="encabezado" class="section">
+<h1>Pozos Petroleros Zulianos, Leonard Pirela.</h1>
+<h5>Información sobre las mediciones tomadas sobre los diferentes manómetros pertenecientes a pozos petroleros a lo largo del tiempo.</h5>
+</div>
+
+<div class="divider"></div>
+
+<div id="principal" class="row section">
+<div class="col s6 valign-wrapper"><p style="text-align: justify;">Éste programa permite evaluar las mediciones arrojadas por los manómetros de un pozo petrolero a lo largo del tiempo. Selecciona uno de los pozos petroleros disponibles para ver la secuencia de mediciones de presión tomadas.</p></div>
+<div class="col s6"><table class="tabla" id="pozos"></table></div>
+</div>
+
+<div id="tablas" class="row section">
+<div class="col s6">
+    <h4>Ingresa una nueva medición</h6>
+    <form onsubmit="return false;" id="nuevaMedicion">
+        <label for="fechaMedicion">Fecha de medicion</label>
+        <input type="date" id="fechaMedicion" name="fechaMedicion" />
+        <label for="valorMedicion">Valor de medicion</label>
+        <input type="number" id="valorMedicion" name="valorMedicion" />
+        <br>
+        <br>
+        <button onclick="ingresarMedicion(filaPulsada);">Enviar Datos</button>
+    </form>
+</div>
+<div id="grafico" class="col s6">
+    <h4>Grafico de mediciones</h6>
+    <canvas id="cuadroGrafico">
+
+    </canvas>
+</div>
+</div>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+   <script src=".\/controladores/generarGraficoPozo.js"></script>
+   <script src=".\/controladores/generarTabla.js"></script>
+   
+</body>
+
+</html>
